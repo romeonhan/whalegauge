@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhaleGauge - Solana Entry Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('https://i.ibb.co/vCgZDDv8/8213be499138690c41e5c743b57c7bd7.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: 'Inter', sans-serif;
+      background-color: #000;
+      color: #eaeaea;
+      margin: 0;
+      padding: 0;
+    }
+    header h1 {
+      font-size: 3rem;
+      background: linear-gradient(135deg, #00ffe0, #8a5eff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+    }
+    .collapsible-heading {
+      color: #00ffe0;
+      margin-top: 2rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .collapsible-heading.active {
+      color: #8affff;
+    }
+    .toggle-icon {
+      display: inline-block;
+      width: 1.2em;
+      text-align: center;
+      margin-right: 0.4em;
+      transition: transform 0.3s ease;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: #111;
+      border: 1px solid #00ffe0;
+      color: #00ffe0;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 5px #0fffc1, 0 0 10px #0fffc166;
+      transition: 0.2s ease;
+    }
+    .tab-btn:hover {
+      background-color: #00ffe033;
+      box-shadow: 0 0 12px #00ffe0aa;
+    }
+    a[href*="Launch Bot"] {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0px #00ffe033; }
+      50% { box-shadow: 0 0 15px #00ffe0; }
+      100% { box-shadow: 0 0 0px #00ffe033; }
+    }
+    .tab-content {
+      display: none;
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .feature-tab {
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+      max-height: 0;
+    }
+    .feature {
+      background-color: #111;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 0 transparent;
+    }
+    .feature:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 12px #00ffe055;
+    }
+    hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #00ffe0, transparent);
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.75); z-index: -1;"></div>
+  <header>
+    <div style="text-align: center; padding: 3rem 1rem 2rem;">
+      <img src="https://i.ibb.co/JWsbMKXj/whalegauge.png" alt="WhaleGauge Logo" style="max-width: 160px; margin-bottom: 1rem;">
+      <h1>WhaleGauge</h1>
+      <p>Solana-native AI Entry Bot for Smart Traders & Alpha Groups</p>
+      <a href="https://t.me/WhaleGaugeBot" target="_blank" style="display: inline-block; background: linear-gradient(145deg, #00ffe0, #8a5eff); color: #000; font-weight: 700; padding: 0.85rem 1.8rem; border-radius: 12px; font-size: 1.1rem; text-decoration: none; margin-top: 1.2rem; box-shadow: 0 0 10px #00ffe055; transition: all 0.3s ease;">🚀 Launch Bot</a>
+      <div class="tabs">
+        <button class="tab-btn" onclick="showTab('features')">🚀 Features</button>
+        <button class="tab-btn" onclick="showTab('sample')">📸 Telegram Sample</button>
+      </div>
+    </div>
+  </header>
+
+  <section id="features" class="tab-content active">
+    <h2>🚀 Key Features</h2>
+    <div style="margin-top:2rem;">
+      <h3 class="collapsible-heading" onclick="toggleFeatureTab(this)"><span class="toggle-icon">➕</span> 🧩 CORE FEATURES</h3>
+      <div class="feature-tab">
+        <div class="feature"><h3>📈 Instant Token Analysis</h3><p>Paste a contract address to get market cap, liquidity, flags, and price instantly.</p></div>
+        <div class="feature"><h3>🧮 Weighted Entry Recommendations</h3><p>Calculates optimal entry based on whale average cost and distribution.</p></div>
+        <div class="feature"><h3>⚠️ Sniper Detection</h3><p>Tracks early aggressive entries to help avoid front-running traps.</p></div>
+        <div class="feature"><h3>🚨 Red Flag Warnings</h3><p>Warns you if a token can be minted, frozen, or blocked.</p></div>
+      </div>
+
+      <h3 class="collapsible-heading" onclick="toggleFeatureTab(this)"><span class="toggle-icon">➕</span> 🧠 AI FEATURES</h3>
+      <div class="feature-tab">
+        <div class="feature"><h3>🤖 AI Insights</h3><p>Interprets token data and gives human-readable evaluations for buy/hold.</p></div>
+        <div class="feature"><h3>🔥 Buy or Wait Signal</h3><p>Predicts optimal entry momentum based on market psychology + data.</p></div>
+      </div>
+
+      <h3 class="collapsible-heading" onclick="toggleFeatureTab(this)"><span class="toggle-icon">➕</span> 🐋 WHALE & RISK TRACKING</h3>
+      <div class="feature-tab">
+        <div class="feature"><h3>📊 Whale Movement Tracking</h3><p>Detects top wallet buys/sells to determine sentiment shift.</p></div>
+        <div class="feature"><h3>💬 Group-Level AI Feedback</h3><p>Perfect for alpha groups with custom rules and entry filters.</p></div>
+        <div class="feature"><h3>🛡 Anti-Rug Risk Grading</h3><p>Evaluates tokens across on-chain metrics and assigns risk level.</p></div>
+      </div>
+
+      <h3 class="collapsible-heading" onclick="toggleFeatureTab(this)"><span class="toggle-icon">➕</span> 📡 INTEGRATION / API</h3>
+      <div class="feature-tab">
+        <div class="feature"><h3>🧩 Webhook/API Integration</h3><p>Connect WhaleGauge insights into your dApp, trading bot, or CRM.</p></div>
+        <div class="feature"><h3>📑 Google Sheets Export</h3><p>Push all token scans directly to spreadsheets with one command.</p></div>
+        <div class="feature"><h3>🔗 Embed Anywhere</h3><p>Embed real-time analysis to your DAO page or trading dashboard.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sample" class="tab-content">
+    <h2>📸 Telegram Sample</h2>
+    <div class="telegram-sample" style="background:#111; padding:1rem; border-radius:10px; font-family:monospace; white-space:pre-wrap; color:#0fffc1; border: 1px solid #00ffe055;">
+📈 Token Info
+├ Created: 3h ago
+├ Market Cap: $263,000
+├ Liquidity: $79,300 (195.57 SOL)
+├ Price: $0.00026
+└ Flags: NoMint ✅ Blacklist ✅ Burnt ✅
+
+📈 Entry Recommendation
+├ 🐳 Leviathan: $265,587
+├ 🦈 Reef Rulers: $345,263
+└ 🐬 Tidal Tribe: $371,822
+
+🤖 AI Insight:
+- Entry is moderate ($265K)
+- Liquidity is strong (30% of MC)
+- Risk tolerance: Medium — Reef Rulers 🦈 suggested
+
+🔥 Suggestion: ✅ Undervalued — Good time to buy
+    </div>
+  </section>
+
+  <footer>
+    <div style="text-align:center; padding-top: 2rem;">
+      <img src="https://i.ibb.co/JWsbMKXj/whalegauge.png" alt="WhaleGauge Logo" style="max-width: 100px; margin-bottom: 1rem; display:block; margin-left:auto; margin-right:auto;">
+      <p style="margin-bottom: 1rem;">
+        <a href="https://twitter.com/whalegauge" target="_blank" style="color:#00ffe0; text-decoration:none; margin: 0 1rem;">X (Twitter)</a>
+        <a href="https://t.me/WhaleGaugeBot" target="_blank" style="color:#00ffe0; text-decoration:none; margin: 0 1rem;">Telegram</a>
+        <a href="mailto:support@whalegauge.ai" style="color:#00ffe0; text-decoration:none; margin: 0 1rem;">Email</a>
+      </p>
+
+      © 2025 WhaleGauge. Built for Solana insiders and alpha hunters.
+    </p>
+  </footer>
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    function toggleFeatureTab(header) {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('.toggle-icon');
+      const isVisible = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+      document.querySelectorAll('.feature-tab').forEach(tab => {
+        tab.style.maxHeight = null;
+        tab.style.overflow = 'hidden';
+      });
+      document.querySelectorAll('.collapsible-heading').forEach(h => {
+        h.classList.remove('active');
+        const i = h.querySelector('.toggle-icon');
+        if (i) i.textContent = '➕';
+      });
+
+      if (!isVisible && content && content.classList.contains('feature-tab')) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        content.style.overflow = 'visible';
+        header.classList.add('active');
+        if (icon) icon.textContent = '➖';
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const first = document.querySelector('.collapsible-heading');
+      if (first) toggleFeatureTab(first);
+    });
+  </script>
+</body>
+</html>
